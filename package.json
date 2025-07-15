@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Keplerx16.github.io/Bitcoin-simulator",
+  "homepage": "https://KeplerX16.github.io/Bitcoin-simulator",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
