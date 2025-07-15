@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sha256 } from "js-sha256";
+import Clock from "./Clock";
 
 function Miner () {
   const [mining, setMining] = useState(false);
@@ -13,13 +14,13 @@ function Miner () {
         setHashes(0);
         let nounce = 0;
         const date = new Date();
-        const time = date.getTime();
+        const value = date.getTime();
         const prefix = "0".repeat(rawdata.difficulty);
         const basedata = rawdata.basedata;
         const interval = setInterval(
           () => {
             for(let i = 0;i < 10000;i++) {
-            const data = basedata + nounce + time;
+            const data = basedata + nounce + value;
             const hash = sha256(sha256(data));
             if (hash.startsWith(prefix)) {
               setHashes(nounce);
@@ -34,11 +35,6 @@ function Miner () {
           },1)
 
     }
-    function myTimer() {
-    const date = new Date();
-    return date.toLocaleTimeString();
-    }
-
 
   return (
     <>
@@ -67,7 +63,7 @@ function Miner () {
             </div>
             <div>
               <label>
-                Current time : {myTimer()}
+                Current time : <Clock />
               </label>
             </div>
         </form>
@@ -77,7 +73,6 @@ function Miner () {
           className='border-2 border-gray-600 h-45 py-3 mt-2 w-170 p-3 place-content-evenly rounded-lg'
           value = "Hi,Welcome to Bitcoin mining simulation , this program duplicates the process of mining a real bitcoin , here this program takes the trascation string i.e. the basedata you give! and the present timestamp is added the it hashes the string by adding nounces , then searches for the hash which starts with no.of zero's you mentioned in difficulty area"
           >
-            
           </textarea>
         </section>
       </div>
