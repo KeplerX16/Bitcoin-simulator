@@ -90,7 +90,7 @@ function Miner () {
               <p className='text-xs md:text-[16px] mt-4 md:mt-3 text-green-300'> Searching for a hash with more than 6 leading zeroes can take a long time, please be patient!..(may take from few minutes to hours(or even days!!!) depending on your device's processing power)
               If you want to test the mining process quickly, set difficulty to 6 or less.
                 </p>}
-      {!mining && 
+      {result && 
       <textarea
       value={{result} ? result : ""} 
       className="mt-4 whitespace-pre-line w-full h-20 break-words text-xs align-left place-content-center md:text-[16px] md:w-185 md:h-40 md:justify-center md:flex md:items-center md:mr-auto md:ml-auto">
